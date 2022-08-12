@@ -16,16 +16,13 @@ def list(request, language=None):
     template = loader.get_template("instructors/list.html")
 
     instructors = None
-    # print('language:'+ language)
 
     ### Task 3: Get instructors from database and filter them based on the language
-
     instructors = Instructor.objects.all()
 
-    if 'list' in request.GET:
-        language_list = request.GET['language']
-        if list:
-            instructors = instructors.filter(Q(search=language_list))
+    if request.method == 'GET':
+        if language:
+            instructors = instructors.filter(languages__code=language)
 
     ### Task 3 - End
 

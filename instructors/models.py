@@ -40,7 +40,7 @@ class Instructor(models.Model):
 
 
     ### Task 2: Create here the courses field using ManyToManyField
-    courses = models.ManyToManyField(Course)
+    # courses = models.ManyToManyField(Course)
     ### Task 2 - End
 
     def __str__(self):
